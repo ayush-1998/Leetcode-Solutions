@@ -1,40 +1,53 @@
 class Solution {
     public boolean isValid(String str) {
-         Stack<Character> st = new Stack<>();
-        for (int i = 0; i < str.length(); i++) {
+        Stack<Character> st = new Stack<>();
+        for(int i=0;i<str.length();i++)
+        {
             char ch = str.charAt(i);
-            if (ch == '(' || ch == '{' || ch == '[') {
+            if(ch == '(' || ch == '{' || ch == '[')
+            {
                 st.push(ch);
-            } else if (ch == ')') {
-                if (st.size() == 0 || st.peek() != '(') {
-                    
+            }
+            else if(ch == ')')
+            {
+                if(st.size() == 0 || st.peek() != '(')
+                {
                     return false;
-                } else {
+                }
+                else
+                {
                     st.pop();
                 }
-            } else if (ch == '}') {
-                if (st.size() == 0 || st.peek() != '{') {
-                    
+            }
+            else if(ch == '}')
+            {
+                if(st.size() == 0 || st.peek() != '{')
+                {
                     return false;
-                } else {
+                }
+                else
+                {
                     st.pop();
                 }
-            } else if (ch == ']') {
-                if (st.size() == 0 || st.peek() != '[') {
+            }
+            else if(ch == ']')
+            {
+                if(st.size() == 0 || st.peek() != '[')
+                {
+                    return false;
+                }
+                else
+                {
+                    st.pop();
+                }
+            }
+            else
+            {
                 
-                    return false;
-                } else {
-                    st.pop();
-                }
-            } else {
-                // nothing
             }
         }
-
-        if (st.size() == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        
+        if(st.size() == 0) return true;
+        return false;
     }
 }
