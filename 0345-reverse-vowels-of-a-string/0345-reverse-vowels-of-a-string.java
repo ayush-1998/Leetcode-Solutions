@@ -15,16 +15,19 @@ class Solution {
     }
 
     public String reverseVowels(String s) {
-        char arr[] = s.toCharArray();
+        char[] arr = s.toCharArray();
         int left = 0;
         int right = arr.length - 1;
+
         while (left < right) {
             while (left < right && isVovel(arr, left) == false) {
                 left++;
             }
+
             while (left < right && isVovel(arr, right) == false) {
                 right--;
             }
+
             swap(arr, left, right);
             left++;
             right--;
